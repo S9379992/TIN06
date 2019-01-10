@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Converter </title>
+    <link rel="stylesheet" href="Assignment06A(a).css">
+</head>
+
+<body>
+    <h1> Welcome to temperature converter!</h1>
+    <div>
+        <form>
+            <p>Enter tamperature in Celsius:</p>
+            <input id="input" type="number"><br>
+            <p> Here is your result in Fahrenheit:</p>
+            <textarea id="output"> </textarea><br>
+            <button id="submit" type="button">Calculate! </button>
+        </form>
+
+        <script type="text/javascript">
+            function cToF(celsius, farenheit) {
+                document.getElementById("output").innerHTML = celsius * 9 / 5 + 32 + "";
+
+            }
+            document.getElementById("submit").onclick = function () {
+                cToF(document.getElementById("input").value);
+            };
+
+
+        </script>
+</body>
+
+</html>

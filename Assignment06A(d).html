@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form and Tables</title>
+    <link rel="stylesheet" href="Assignment06A(d).css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <form name="Form">
+            First name:<br>
+            <input class="form-element" type="text" name="firstname"><br>
+            Last name:<br>
+            <input class="form-element" type="text" name="lastname"><br>
+            Age:<br>
+            <input class="form-element" type="number" name="age"><br>
+        </form>
+        <div class="form-element">
+            <input type="button" id="submitButton" value="Add data to table!" onclick="addToTable()">
+        </div>
+    </div>
+    <br>
+    <!-- Table -->
+    <table style="width:100%">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        function addToTable(firstName, lastName, age) {
+            var flag = true;
+            firstName = document.forms["Form"]["firstname"].value;
+            lastName = document.forms["Form"]["lastname"].value;
+            age = document.forms["Form"]["age"].value;
+            if (firstName.length === 0) {
+                alert("Provide a name!");
+                flag = false;
+            }
+
+            if (lastName.length === 0) {
+                alert("Provide a surname!");
+                flag = false;
+            }
+
+            if (age.length === 0) {
+                alert("Provide an age");
+                flag = false;
+            }
+
+            if (flag == false) {
+                alert("Something is wrong!");
+                return false;
+
+            }
+            else {
+                flag = true;
+
+                alert("Well done!");
+            }
+            var table = document.getElementsByTagName("table")[0];
+            var newRow = table.insertRow(table.rows.length);
+
+            var cel1 = newRow.insertCell(0);
+            var cel2 = newRow.insertCell(1);
+            var cel3 = newRow.insertCell(2);
+            cel1.innerHTML = firstName;
+            cel2.innerHTML = lastName;
+            cel3.innerHTML = age;
+
+        }
+    </script>
+
+</body>
+
+</html>
